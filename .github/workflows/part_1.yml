@@ -23,26 +23,28 @@ jobs:
       - name: Read the command
         run: echo $COMMAND
 
-      - name: Read the job level env variable
-        run: echo "${{ env.PACKAGE_VERSION }}"
-
-      - name: Read the step level env variable
-        env:
-          PACKAGE_VERSION: version on the STEP level
-        run: echo "${{ env.PACKAGE_VERSION }}"
-
-      - name: execute step if the event is push
-        if: github.event_name  == 'push'
-        run: echo "${{ github.event_name }}"
-
-      - name: skip the step if the event is push
-        if: github.event_name  != 'push'
-        run: echo "${{ github.event_name }}"
-
-      - name: test
+      - name: mkdir with variable param
         run: mkdir $COMMAND testdir/nestdir
 
-      - name: ls la
+      - name: Verify that the dir was created
         run: ls -la testdir
+
+      # - name: Read the job level env variable
+      #   run: echo "${{ env.PACKAGE_VERSION }}"
+
+      # - name: Read the step level env variable
+      #   env:
+      #     PACKAGE_VERSION: version on the STEP level
+      #   run: echo "${{ env.PACKAGE_VERSION }}"
+
+      # - name: execute step if the event is push
+      #   if: github.event_name  == 'push'
+      #   run: echo "${{ github.event_name }}"
+
+      # - name: skip the step if the event is push
+      #   if: github.event_name  != 'push'
+      #   run: echo "${{ github.event_name }}"
+
+      
 
       
