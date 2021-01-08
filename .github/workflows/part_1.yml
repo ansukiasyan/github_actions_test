@@ -25,4 +25,5 @@ jobs:
         run: echo "${{ env.PACKAGE_VERSION }}"
 
       - name: execute step if the event is push
+        if: github.event_name  == 'push'
         run: echo "${{ github.event_name }}"
