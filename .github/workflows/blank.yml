@@ -11,15 +11,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PACKAGE_VERSION: version on job level
+      PACKAGE_VERSION: version on the JOB level
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a one-line script
+      - name: Read the job level env variable
         run: echo "${{ env.PACKAGE_VERSION }}"
 
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Read the step level env variable
+        env:
+          PACKAGE_VERSION: version on the STEP level
+        run: echo "${{ env.PACKAGE_VERSION }}"
