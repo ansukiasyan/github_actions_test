@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PACKAGE_VERSION: version on the JOB level
-      FILE_MODE: 777
-      # COMMAND: -m "${{ env.FILE_MODE }}"
+      FILE_MODE: 777      
 
     steps:
       - uses: actions/checkout@v2
@@ -40,7 +39,10 @@ jobs:
         if: github.event_name  != 'push'
         run: echo "${{ github.event_name }}"
 
-      # - name: test
-      #   run: echo "${{ env.COMMAND }}"
+      - name: test
+        run: mkdir $COMMAND testdir
+
+      - name: ls la
+        run: ls -la testdir
 
       
