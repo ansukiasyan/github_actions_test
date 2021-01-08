@@ -12,17 +12,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env:
-      PACKAGE_VERSION: 0.0.1
+    runs-on: ubuntu-latest    
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Read the job level env variable
-        run: echo "${{ env.PACKAGE_VERSION }}"
+      - name: Write env variable to github_env file
+        run: echo "PACKAGE_VERSION=1.0.0" >> $GITHUB_ENV
 
-      - name: Read the step level env variable
-        env:
-          PACKAGE_VERSION: 0.0.2
-        run: echo "${{ env.PACKAGE_VERSION }}"
+      - name: Read the env variable from the file        
+        run: echo "${{ PACKAGE_VERSION }}"
