@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PACKAGE_VERSION: version on the JOB level
+      FILE_MODE: 777
+      COMMAND: -m ${{ env.FILE_MODE }}
 
     steps:
       - uses: actions/checkout@v2
@@ -31,3 +33,8 @@ jobs:
       - name: skip the step if the event is push
         if: github.event_name  != 'push'
         run: echo "${{ github.event_name }}"
+
+      - name: test
+        run: echo "${{ env.COMMAND }}"
+
+      
