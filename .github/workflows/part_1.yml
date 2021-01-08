@@ -13,7 +13,7 @@ jobs:
     env:
       PACKAGE_VERSION: version on the JOB level
       FILE_MODE: 777
-      COMMAND: -m ${{ env.FILE_MODE }}
+      COMMAND: -m "${{ env.FILE_MODE }}"
 
     steps:
       - uses: actions/checkout@v2
