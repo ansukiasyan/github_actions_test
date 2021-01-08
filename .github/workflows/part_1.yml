@@ -27,3 +27,7 @@ jobs:
       - name: execute step if the event is push
         if: github.event_name  == 'push'
         run: echo "${{ github.event_name }}"
+
+      - name: skip the step if the event is push
+        if: github.event_name  != 'push'
+        run: echo "${{ github.event_name }}"
