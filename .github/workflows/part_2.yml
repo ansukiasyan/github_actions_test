@@ -1,17 +1,20 @@
-name: CI
+name: Deploy
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: 
+      - Package
+    branches: [main]
+    types: 
+      - completed
   
-  workflow_dispatch:
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PACKAGE_VERSION: version on the JOB level
+      PACKAGE_VERSION: 0.0.1
 
     steps:
       - uses: actions/checkout@v2
@@ -21,5 +24,5 @@ jobs:
 
       - name: Read the step level env variable
         env:
-          PACKAGE_VERSION: version on the STEP level
+          PACKAGE_VERSION: 0.0.2
         run: echo "${{ env.PACKAGE_VERSION }}"

@@ -1,0 +1,25 @@
+name: Package
+
+on:
+  push:
+    branches: [ main ]
+  
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PACKAGE_VERSION: version on the JOB level
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Read the job level env variable
+        run: echo "${{ env.PACKAGE_VERSION }}"
+
+      - name: Read the step level env variable
+        env:
+          PACKAGE_VERSION: version on the STEP level
+        run: echo "${{ env.PACKAGE_VERSION }}"
