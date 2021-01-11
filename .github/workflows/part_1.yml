@@ -20,6 +20,9 @@ jobs:
       - name: Export the command to the env file
         run: echo "COMMAND= -pm "${{ env.FILE_MODE }}"" >> $GITHUB_ENV
 
+      - name: Echo github_env
+        run: echo $GITHUB_ENV
+
       - name: Read the command
         run: echo $COMMAND
 
