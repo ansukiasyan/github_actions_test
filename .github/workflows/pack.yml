@@ -1,9 +1,9 @@
 name: "Deploy to NuGet"
 
 on:
-  push:
-    branches: 
-    - main
+  # push:
+  #   branches: 
+  #   - main
   release:
     types:
       - created
@@ -43,4 +43,4 @@ jobs:
     #- run: echo ${{ steps.get_version.outputs.version-without-v }}
 
     - name: 'Pack project'
-      run: dotnet pack 'ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp.csproj' --no-restore --no-build --configuration Release --include-symbols -p:PackageVersion=${{ steps.version.outputs.version-without-v }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+      run: dotnet pack 'ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp.csproj' --no-restore --no-build --configuration Release --include-symbols -p:PackageVersion=${{ github.event.release.tag_name }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
