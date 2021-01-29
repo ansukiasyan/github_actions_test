@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Valodik
-        run: echo "vardushik" >> ~/valodik.txt     
+        run: echo "export HAREVAN=\"valodik\"" >> ~/valodik.env          
 
 
       - name: Export the command to the env file
@@ -38,7 +38,7 @@ jobs:
         run: ls -la testdir
 
       - name: vardushik
-        run: cat ~/valodik.txt
+        run: include ~/valodik.env && echo $HAREVAN
 
       # - name: Read the job level env variable
       #   run: echo "${{ env.PACKAGE_VERSION }}"
