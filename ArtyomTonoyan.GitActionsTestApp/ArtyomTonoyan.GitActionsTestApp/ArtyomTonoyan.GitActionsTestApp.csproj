@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageTags>ArtyomTonoyan</PackageTags>
+    <RepositoryUrl>https://github.com/artonoyan/GitActionsTestApp</RepositoryUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Artyom Tonoyan</Authors>
+    <Company>ST</Company>
+    <PackageProjectUrl>https://github.com/artonoyan/GitActionsTestApp</PackageProjectUrl>
+    <Copyright>@ ArtyomTonoyan</Copyright>
+    <Version>1.1.0</Version>
+    <Description>Test Project</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtyomTonoyan.GitActionsTestApp.Abstractions\ArtyomTonoyan.GitActionsTestApp.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

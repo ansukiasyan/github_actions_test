@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtyomTonoyan.GitActionsTestApp", "ArtyomTonoyan.GitActionsTestApp\ArtyomTonoyan.GitActionsTestApp.csproj", "{76805EBD-EE3D-4EA5-8FAF-6CFC546294B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtyomTonoyan.GitActionsTestApp.Abstractions", "ArtyomTonoyan.GitActionsTestApp.Abstractions\ArtyomTonoyan.GitActionsTestApp.Abstractions.csproj", "{9858202E-1795-4930-AF7F-86B64242B407}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76805EBD-EE3D-4EA5-8FAF-6CFC546294B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76805EBD-EE3D-4EA5-8FAF-6CFC546294B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76805EBD-EE3D-4EA5-8FAF-6CFC546294B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76805EBD-EE3D-4EA5-8FAF-6CFC546294B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9858202E-1795-4930-AF7F-86B64242B407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9858202E-1795-4930-AF7F-86B64242B407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9858202E-1795-4930-AF7F-86B64242B407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9858202E-1795-4930-AF7F-86B64242B407}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {787C4D23-4D9F-4BBC-AF6F-E3D35901B19A}
+	EndGlobalSection
+EndGlobal
