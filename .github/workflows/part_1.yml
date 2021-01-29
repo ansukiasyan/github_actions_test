@@ -38,7 +38,7 @@ jobs:
         run: ls -la testdir
 
       - name: vardushik
-        run: include ~/valodik.env && echo $HAREVAN
+        run: bash ~/valodik.env && echo $HAREVAN
 
       # - name: Read the job level env variable
       #   run: echo "${{ env.PACKAGE_VERSION }}"
