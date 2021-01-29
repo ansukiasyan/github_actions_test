@@ -12,14 +12,19 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PACKAGE_VERSION: version on the JOB level
-      FILE_MODE: 777      
+      FILE_MODE: 777
+           
 
     steps:
       - uses: actions/checkout@v2
 
+      - name: Valodik
+        run: echo "vardushik" >> ~/valodik.txt     
+
+
       - name: Export the command to the env file
         run: echo "COMMAND= -pm "${{ env.FILE_MODE }}"" >> $GITHUB_ENV
-
+                   
       - name: Echo github_env
         run: echo $GITHUB_ENV
 
@@ -31,6 +36,9 @@ jobs:
 
       - name: Verify that the dir was created
         run: ls -la testdir
+
+      - name: vardushik
+        run: cat ~/valodik.txt
 
       # - name: Read the job level env variable
       #   run: echo "${{ env.PACKAGE_VERSION }}"
