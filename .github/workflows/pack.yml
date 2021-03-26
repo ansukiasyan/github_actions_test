@@ -37,10 +37,8 @@ jobs:
 
     - name: 'Get Version'
       id: version
-      uses: battila7/get-version-action@v2
+      uses: battila7/get-version-action@v2   
     
-    #- name: 'Get Version'
-    #- run: echo ${{ steps.get_version.outputs.version-without-v }}
 
-    - name: 'Pack project'
-      run: dotnet pack 'ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp.csproj' --no-restore --no-build --configuration Release --include-symbols -p:PackageVersion=${{ github.event.release.tag_name }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+    - name: 'Pack project GitActionsTestApp.Abstractions'
+      run: dotnet pack 'ArtyomTonoyan.GitActionsTestApp/ArtyomTonoyan.GitActionsTestApp.Abstractions/ArtyomTonoyan.GitActionsTestApp.Abstractions.csproj' --no-restore --no-build --configuration Release --include-symbols -p:PackageVersion=${{ github.event.release.tag_name }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
