@@ -25,3 +25,6 @@ jobs:
           cd ./grafana 
           docker build . --file Dockerfile --tag asukiasyanst/grafana:${{ github.event.inputs.tag }}
 
+      - name: Push image to dockerhub
+        run: docker push asukiasyanst/grafana:${{ github.event.inputs.tag }}
+
