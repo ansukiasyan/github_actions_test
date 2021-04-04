@@ -1,0 +1,19 @@
+name: "Push docker image to dockerhub"
+
+on: 
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      -name: echo guthub_ref
+        run: echo ${GITHUB_REF}
+
