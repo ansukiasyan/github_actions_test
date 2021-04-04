@@ -17,6 +17,9 @@ jobs:
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
+      - name: Get image tag
+        run: echo ${{ github.event.workflow_dispatch.tag }}
+
       - name: Build docker image
-        run: docker build . --file Dockerfile --tag "asukiasyanst/grafana:${{ github.event.workflow_dispatch.tag }}"
+        run: docker build . --file Dockerfile --tag asukiasyanst/grafana:${{ github.event.workflow_dispatch.tag }}
 
