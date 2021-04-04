@@ -2,6 +2,9 @@ name: "Push docker image to dockerhub"
 
 on: 
   workflow_dispatch:
+    inputs:
+      tag:
+        description: docker image tag
 
 
 jobs:
@@ -14,6 +17,6 @@ jobs:
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: echo guthub_ref
-        run: echo ${GITHUB_REF}
+      - name: Build docker image
+        run: docker build . --file Dockerfile --tag asukiasyanst/grafana:${{ github.event.workflow_dispatch.tag }}
 
