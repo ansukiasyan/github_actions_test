@@ -1,0 +1,30 @@
+name: "Push docker image to dockerhub"
+
+on: 
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: docker image tag
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Get image tag
+        run: echo ${{ github.event.inputs.tag }}
+
+      - name: Build docker image
+        run: |
+          cd ./grafana 
+          docker build . --file Dockerfile --tag asukiasyanst/grafana:${{ github.event.inputs.tag }}
+
+      - name: Push image to dockerhub
+        run: docker push asukiasyanst/grafana:${{ github.event.inputs.tag }}
+
